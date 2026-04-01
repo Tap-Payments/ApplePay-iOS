@@ -1,0 +1,24 @@
+{
+  "originHash" : "bc6d9c042fd3bd93a25041b25dd1e9b4ef3aa733dea290f8e54807a60a972047",
+  "pins" : [
+    {
+      "identity" : "shareddatamodels-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Tap-Payments/SharedDataModels-iOS.git",
+      "state" : {
+        "revision" : "1dff74525847544e3e155503acd77f35a2022d7c",
+        "version" : "0.0.13"
+      }
+    },
+    {
+      "identity" : "swiftyrsa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TakeScoop/SwiftyRSA.git",
+      "state" : {
+        "revision" : "6521919ad0e99dff927685f142d8136479acb452",
+        "version" : "1.8.0"
+      }
+    }
+  ],
+  "version" : 3
+}
