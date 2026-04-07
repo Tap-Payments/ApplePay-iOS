@@ -181,12 +181,6 @@ internal class ApplePayButton: UIView {
             switch result {
             case .success(let redirectUrl):
                 self.openUrl(url: redirectUrl)
-#if targetEnvironment(simulator)
-                DispatchQueue.main.async {
-                    self.showSimulatorNativeButton()
-                }
-#endif
-
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.hideShimmer()
@@ -267,7 +261,6 @@ internal class ApplePayButton: UIView {
         request.currencyCode          = (transaction["currency"] as? String)?.uppercased() ?? "USD"
         request.countryCode           = countryCode(forCurrency: request.currencyCode)
         request.paymentSummaryItems   = paymentSummaryItems(from: transaction)
-
         return request
     }
 

@@ -57,33 +57,6 @@ extension ApplePayButton: WKNavigationDelegate {
         }
     }
 
-    // MARK: - Simulator fallback
-
-    #if targetEnvironment(simulator)
-    /// Primary fallback: page finished loading but web SDK never fired `onReady`.
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        guard simulatorPayButton == nil else { return }
-        hideShimmer()
-        showSimulatorNativeButton()
-        delegate?.onReady?()
-    }
-
-    /// Secondary fallback: page failed mid-load — still show the native button.
-    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        guard simulatorPayButton == nil else { return }
-        hideShimmer()
-        showSimulatorNativeButton()
-        delegate?.onReady?()
-    }
-
-    /// Secondary fallback: provisional navigation failed (DNS, SSL, network) — still show native button.
-    public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        guard simulatorPayButton == nil else { return }
-        hideShimmer()
-        showSimulatorNativeButton()
-        delegate?.onReady?()
-    }
-    #endif
 
     // MARK: - Charge created handler
 
