@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D636F03A2F8E275900A42B27 /* ApplePay-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = D636F0392F8E275900A42B27 /* ApplePay-iOS */; };
 		D695C2B02F83B3B10011F652 /* ApplePay-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = D695C2AF2F83B3B10011F652 /* ApplePay-iOS */; };
 		D695C2CA2F83B4120011F652 /* ApplePay-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = D695C2C92F83B4120011F652 /* ApplePay-iOS */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D636F03A2F8E275900A42B27 /* ApplePay-iOS in Frameworks */,
 				D695C2CA2F83B4120011F652 /* ApplePay-iOS in Frameworks */,
 				D695C2B02F83B3B10011F652 /* ApplePay-iOS in Frameworks */,
 			);
@@ -87,6 +89,7 @@
 			packageProductDependencies = (
 				D695C2AF2F83B3B10011F652 /* ApplePay-iOS */,
 				D695C2C92F83B4120011F652 /* ApplePay-iOS */,
+				D636F0392F8E275900A42B27 /* ApplePay-iOS */,
 			);
 			productName = TapApplePayExample;
 			productReference = D69B5F072F7561C200E8D53A /* TapApplePayExample.app */;
@@ -117,7 +120,7 @@
 			mainGroup = D69B5EFE2F7561C200E8D53A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				D695C2C82F83B4120011F652 /* XCLocalSwiftPackageReference "../../ApplePay-iOS" */,
+				D636F0382F8E275900A42B27 /* XCLocalSwiftPackageReference "../../ApplePay-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D69B5F082F7561C200E8D53A /* Products */;
@@ -363,13 +366,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		D695C2C82F83B4120011F652 /* XCLocalSwiftPackageReference "../../ApplePay-iOS" */ = {
+		D636F0382F8E275900A42B27 /* XCLocalSwiftPackageReference "../../ApplePay-iOS" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../ApplePay-iOS";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D636F0392F8E275900A42B27 /* ApplePay-iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "ApplePay-iOS";
+		};
 		D695C2AF2F83B3B10011F652 /* ApplePay-iOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "ApplePay-iOS";

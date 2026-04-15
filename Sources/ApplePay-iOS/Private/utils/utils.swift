@@ -6,7 +6,7 @@ import SharedDataModels_iOS
 // MARK: - Endpoints & schemes
 
 /// POST endpoint: send the Apple Pay config body, receive back { "redirect_url": "..." }
-internal let tapApplePayConfigEndpoint = "https://mw-sdk.beta.tap.company/v2/button/config"
+internal let tapApplePayConfigEndpoint = "https://mw-sdk.tap.company/v2/button/config"
 
 /// Custom URL scheme the Apple Pay web SDK uses to send event callbacks to native
 internal let tapApplePayWebSdkScheme = "tapapplepaywebsdk://"

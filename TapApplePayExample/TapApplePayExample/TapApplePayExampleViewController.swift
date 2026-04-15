@@ -74,7 +74,7 @@ class TapApplePayExampleViewController: UIViewController {
         // REQUIRED: Payment acceptance settings
         "acceptance": [
             // SupportedNetworks (each element): 'amex' | 'mada' | 'masterCard' | 'visa' | 'chinaUnionPay' | 'discover' | 'electron' | 'jcb' | 'maestro'
-            "supportedBrands":    ["visa", "masterCard"],
+//            "supportedBrands":    ["visa", "masterCard", "NAPAS"],
             // Supported card types: "credit" and/or "debit" (optional)
            "supportedCards":     ["debit"],
             // Supported regions for payments (optional)
@@ -86,9 +86,9 @@ class TapApplePayExampleViewController: UIViewController {
         // REQUIRED: Transaction details
         "transaction": [
             // Transaction amount as string (required)
-            "amount":     "20.00",
+            "amount":     "1.00",
             // ISO 4217 currency code (required)
-            "currency":   "KWD",
+            "currency":   "QAR",
             // Coupon code for discount (optional)
 //            "couponCode": "SAVE10",
             // Shipping options (optional, only if shipping is applicable)
