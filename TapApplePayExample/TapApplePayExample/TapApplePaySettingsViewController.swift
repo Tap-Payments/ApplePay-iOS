@@ -21,6 +21,7 @@ class TapApplePaySettingsViewController: UITableViewController {
         case locale
         case theme
         case edges
+        case cornerRadius
         case scope
         case type
         case supportedBrands
@@ -90,7 +91,8 @@ class TapApplePaySettingsViewController: UITableViewController {
         case .customerPhone: return "Customer Phone"
         case .locale:        return "Locale"
         case .theme:         return "Theme"
-        case .edges:         return "Edges"
+        case .edges:         return "Edges"     
+        case .cornerRadius:  return "Corner Radius"
         case .scope:         return "Scope"
         case .type:          return "Type"
         case .supportedBrands:        return "Supported Brands"
@@ -134,6 +136,11 @@ class TapApplePaySettingsViewController: UITableViewController {
             return (config["interface"] as? [String: Any])?["theme"] as? String ?? "dark"
         case .edges:
             return (config["interface"] as? [String: Any])?["edges"] as? String ?? "curved"
+        case .cornerRadius:
+            let r = (config["interface"] as? [String: Any])?["cornerRadius"]
+            if let d = r as? Double { return String(d) }
+            if let s = r as? String { return s }
+            return "10"
         case .scope:
             return config["scope"] as? String ?? "AppleToken"
         case .type:
@@ -335,7 +342,7 @@ class TapApplePaySettingsViewController: UITableViewController {
         case .supportedCountries: return ["AF", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BS", "BH", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO", "BQ", "BA", "BW", "BV", "BR", "IO", "BN", "BG", "BF", "BI", "CV", "KH", "CM", "CA", "KY", "CF", "TD", "CL", "CN", "CX", "CC", "CO", "KM", "CD", "CG", "CK", "CR", "HR", "CU", "CW", "CY", "CZ", "CI", "DK", "DJ", "DM", "DO", "EC", "EG", "SV", "GQ", "ER", "EE", "SZ", "ET", "FK", "FO", "FJ", "FI", "FR", "GF", "PF", "TF", "GA", "GM", "GE", "DE", "GH", "GI", "GR", "GL", "GD", "GP", "GU", "GT", "GG", "GN", "GW", "GY", "HT", "HM", "VA", "HN", "HK", "HU", "IS", "IN", "ID", "IR", "IQ", "IE", "IM", "IL", "IT", "JM", "JP", "JE", "JO", "KZ", "KE", "KI", "KP", "KR", "KW", "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT", "LU", "MO", "MG", "MW", "MY", "MV", "ML", "MT", "MH", "MQ", "MR", "MU", "YT", "MX", "FM", "MD", "MC", "MN", "ME", "MS", "MA", "MZ", "MM", "NA", "NR", "NP", "NL", "NC", "NZ", "NI", "NE", "NG", "NU", "NF", "MP", "NO", "OM", "PK", "PW", "PS", "PA", "PG", "PY", "PE", "PH", "PN", "PL", "PT", "PR", "QA", "MK", "RO", "RU", "RW", "RE", "BL", "SH", "KN", "LC", "MF", "PM", "VC", "WS", "SM", "ST", "SA", "SN", "RS", "SC", "SL", "SG", "SX", "SK", "SI", "SB", "SO", "ZA", "GS", "SS", "ES", "LK", "SD", "SR", "SJ", "SE", "CH", "SY", "TW", "TJ", "TZ", "TH", "TL", "TG", "TK", "TO", "TT", "TN", "TR", "TM", "TC", "TV", "UG", "UA", "AE", "GB", "UM", "US", "UY", "UZ", "VU", "VE", "VN", "VG", "VI", "WF", "EH", "YE", "ZM", "ZW", "AX"]
         case .shippingContactFields: return ["name", "phone", "email"]
         case .paymentTiming: return ["immediate", "recurring", "deferred", "automaticReload"]
-        case .couponCode, .publicKey, .merchantId, .amount, .currency, .customerEmail, .customerPhone, .edges, .shipping1Label, .shipping1Detail, .shipping1Amount, .shipping1Identifier, .shipping2Label, .shipping2Detail, .shipping2Amount, .shipping2Identifier, .itemLabel, .itemAmount:
+        case .couponCode, .publicKey, .merchantId, .amount, .currency, .customerEmail, .customerPhone, .edges, .cornerRadius, .shipping1Label, .shipping1Detail, .shipping1Amount, .shipping1Identifier, .shipping2Label, .shipping2Detail, .shipping2Amount, .shipping2Identifier, .itemLabel, .itemAmount:
             return nil
         }
     }
@@ -361,6 +368,8 @@ class TapApplePaySettingsViewController: UITableViewController {
             set(value: value, atPath: ["interface", "theme"])
         case .edges:
             set(value: value, atPath: ["interface", "edges"])
+        case .cornerRadius:
+            set(value: Double(value) ?? 10.0, atPath: ["interface", "cornerRadius"])
         case .scope:
             config["scope"] = value
         case .couponCode:
@@ -402,7 +411,7 @@ class TapApplePaySettingsViewController: UITableViewController {
         case .shipping1Detail, .shipping2Detail: fieldKey = "detail"
         case .shipping1Amount, .shipping2Amount: fieldKey = "amount"
         case .shipping1Identifier, .shipping2Identifier: fieldKey = "identifier"
-        case .publicKey, .merchantId, .amount, .currency, .customerEmail, .customerPhone, .locale, .theme, .edges, .scope, .type, .supportedBrands, .supportedCards, .supportedRegions, .supportedCountries, .shippingContactFields, .couponCode, .itemLabel, .itemAmount, .paymentTiming:
+        case .publicKey, .merchantId, .amount, .currency, .customerEmail, .customerPhone, .locale, .theme, .edges, .cornerRadius, .scope, .type, .supportedBrands, .supportedCards, .supportedRegions, .supportedCountries, .shippingContactFields, .couponCode, .itemLabel, .itemAmount, .paymentTiming:
             return
         }
         
@@ -433,7 +442,7 @@ class TapApplePaySettingsViewController: UITableViewController {
         case .itemLabel: fieldKey = "label"
         case .itemAmount: fieldKey = "amount"
         case .paymentTiming: fieldKey = "paymentTiming"
-        case .publicKey, .merchantId, .amount, .currency, .customerEmail, .customerPhone, .locale, .theme, .edges, .scope, .type, .supportedBrands, .supportedCards, .supportedRegions, .supportedCountries, .shippingContactFields, .couponCode, .shipping1Label, .shipping1Detail, .shipping1Amount, .shipping1Identifier, .shipping2Label, .shipping2Detail, .shipping2Amount, .shipping2Identifier:
+        case .publicKey, .merchantId, .amount, .currency, .customerEmail, .customerPhone, .locale, .theme, .edges, .cornerRadius, .scope, .type, .supportedBrands, .supportedCards, .supportedRegions, .supportedCountries, .shippingContactFields, .couponCode, .shipping1Label, .shipping1Detail, .shipping1Amount, .shipping1Identifier, .shipping2Label, .shipping2Detail, .shipping2Amount, .shipping2Identifier:
             return
         }
         

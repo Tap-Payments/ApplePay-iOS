@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "ApplePay-iOS"
-  spec.version      = "0.0.5"
+  spec.version      = "0.0.6"
   spec.summary      = "A comprehensive Apple Pay integration library for iOS"
   spec.description  = <<-DESC
     ApplePay-iOS is a robust library that simplifies Apple Pay integration in iOS applications.
@@ -22,6 +22,7 @@ Pod::Spec.new do |spec|
 
   spec.dependency "SwiftyRSA", ">= 1.0.0"
   spec.dependency "SharedDataModels-iOS", ">= 0.0.1"
+  spec.dependency "TapApplePayKit-iOS", ">= 1.0.32"
 
   spec.swift_versions = "5.0"
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D636F03A2F8E275900A42B27 /* ApplePay-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = D636F0392F8E275900A42B27 /* ApplePay-iOS */; };
+		D67AD6362FA31B010053EBA1 /* ApplePay-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = D67AD6352FA31B010053EBA1 /* ApplePay-iOS */; };
+		D67AD6392FA31B230053EBA1 /* ApplePay-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = D67AD6382FA31B230053EBA1 /* ApplePay-iOS */; };
 		D695C2B02F83B3B10011F652 /* ApplePay-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = D695C2AF2F83B3B10011F652 /* ApplePay-iOS */; };
 		D695C2CA2F83B4120011F652 /* ApplePay-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = D695C2C92F83B4120011F652 /* ApplePay-iOS */; };
 /* End PBXBuildFile section */
@@ -42,9 +44,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D67AD6362FA31B010053EBA1 /* ApplePay-iOS in Frameworks */,
 				D636F03A2F8E275900A42B27 /* ApplePay-iOS in Frameworks */,
 				D695C2CA2F83B4120011F652 /* ApplePay-iOS in Frameworks */,
 				D695C2B02F83B3B10011F652 /* ApplePay-iOS in Frameworks */,
+				D67AD6392FA31B230053EBA1 /* ApplePay-iOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +94,8 @@
 				D695C2AF2F83B3B10011F652 /* ApplePay-iOS */,
 				D695C2C92F83B4120011F652 /* ApplePay-iOS */,
 				D636F0392F8E275900A42B27 /* ApplePay-iOS */,
+				D67AD6352FA31B010053EBA1 /* ApplePay-iOS */,
+				D67AD6382FA31B230053EBA1 /* ApplePay-iOS */,
 			);
 			productName = TapApplePayExample;
 			productReference = D69B5F072F7561C200E8D53A /* TapApplePayExample.app */;
@@ -120,7 +126,7 @@
 			mainGroup = D69B5EFE2F7561C200E8D53A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				D636F0382F8E275900A42B27 /* XCLocalSwiftPackageReference "../../ApplePay-iOS" */,
+				D67AD6372FA31B230053EBA1 /* XCLocalSwiftPackageReference "../../ApplePay-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D69B5F082F7561C200E8D53A /* Products */;
@@ -366,7 +372,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		D636F0382F8E275900A42B27 /* XCLocalSwiftPackageReference "../../ApplePay-iOS" */ = {
+		D67AD6372FA31B230053EBA1 /* XCLocalSwiftPackageReference "../../ApplePay-iOS" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../ApplePay-iOS";
 		};
@@ -374,6 +380,14 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		D636F0392F8E275900A42B27 /* ApplePay-iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "ApplePay-iOS";
+		};
+		D67AD6352FA31B010053EBA1 /* ApplePay-iOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "ApplePay-iOS";
+		};
+		D67AD6382FA31B230053EBA1 /* ApplePay-iOS */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "ApplePay-iOS";
 		};

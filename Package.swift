@@ -13,6 +13,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/TakeScoop/SwiftyRSA.git", from: "1.0.0"),
         .package(url: "https://github.com/Tap-Payments/SharedDataModels-iOS.git", from: "0.0.1"),
+        .package(url: "https://github.com/Tap-Payments/TapApplePayKit-iOS.git", from: "1.0.33"),
     ],
     targets: [
         .target(
@@ -20,11 +21,8 @@ let package = Package(
             dependencies: [
                 "SwiftyRSA",
                 "SharedDataModels-iOS",
+                .product(name: "TapApplePayKit_iOS", package: "TapApplePayKit-iOS"),
             ]
-        ),
-        .testTarget(
-            name: "ApplePayIOSTests",
-            dependencies: ["ApplePay-iOS"]
         ),
     ],
     swiftLanguageVersions: [.v5]

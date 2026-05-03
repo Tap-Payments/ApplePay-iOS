@@ -11,6 +11,14 @@ class TapApplePayExampleViewController: UIViewController {
     private let scrollView         = UIScrollView()
     private let contentStack       = UIStackView()
 
+    // MARK: - State
+
+
+    // MARK: - State
+
+    /// When `true`, bypasses Firebase and forces the native legacy implementation directly.
+    var forceLegacy: Bool = false
+
     // MARK: - Config
 
     /// Default config matching the Apple Pay button props.
@@ -25,6 +33,8 @@ class TapApplePayExampleViewController: UIViewController {
         // REQUIRED: Merchant information
         "merchant": [
             "id": "1124340",
+            // Apple Pay merchant identifier (required for legacy native implementation)
+            "applePayMerchantId": "merchant.tap.gosell",
         ],
         
         // OPTIONAL: Interface customization
@@ -34,9 +44,11 @@ class TapApplePayExampleViewController: UIViewController {
             // ThemeMode: 'dark' | 'light' (optional, defaults to 'light')
             "theme":  "dark",
             // Edges: 'straight' | 'curved' (optional, defaults to 'curved')
-            "edges":  "curved",
+            "edges":  "rounded",
+            // CornerRadius: custom corner radius in points (optional, defaults to 10)
+            "cornerRadius": 10,
             // ButtonType: 'book' | 'buy' | 'check-out' | 'pay' | 'plain' | 'subscribe' (optional)
-            "type":   "buy",
+            "type":   "subscribe",
         ],
         
         // REQUIRED: Customer information
@@ -199,7 +211,7 @@ class TapApplePayExampleViewController: UIViewController {
             contentStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -16),
             contentStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32),
 
-            applePayView.heightAnchor.constraint(equalToConstant: 100),
+            applePayView.heightAnchor.constraint(equalToConstant: 48),
             eventsTextView.heightAnchor.constraint(greaterThanOrEqualToConstant: 250),
         ])
     }
@@ -207,9 +219,10 @@ class TapApplePayExampleViewController: UIViewController {
     // MARK: - Apple Pay
 
     private func startApplePay() {
+        title = forceLegacy ? "Tap Apple Pay (Legacy)" : "Tap Apple Pay"
         refreshButton.isHidden = true
         eventsTextView.text = ""
-        applePayView.initApplePay(configDict: config, delegate: self)
+        applePayView.initApplePay(configDict: config, delegate: self, forceLegacy: forceLegacy)
     }
 
     // MARK: - Actions
@@ -219,7 +232,13 @@ class TapApplePayExampleViewController: UIViewController {
     }
 
     @objc private func optionsTapped() {
+        let forceLabel = forceLegacy ? "Force Legacy: ON (tap to use Firebase)" : "Force Legacy: OFF (tap to force legacy)"
         let sheet = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(.init(title: forceLabel, style: .default) { [weak self] _ in
+            guard let self else { return }
+            self.forceLegacy.toggle()
+            self.startApplePay()
+        })
         sheet.addAction(.init(title: "Copy logs", style: .default) { _ in
             UIPasteboard.general.string = self.eventsTextView.text
         })
