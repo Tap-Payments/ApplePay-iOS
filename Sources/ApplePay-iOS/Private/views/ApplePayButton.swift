@@ -1,7 +1,7 @@
 import UIKit
 import WebKit
 import PassKit
-import SharedDataModels_iOS
+@_implementationOnly import SharedDataModels_iOS
 
 /// The core WKWebView-based Apple Pay button view.
 ///

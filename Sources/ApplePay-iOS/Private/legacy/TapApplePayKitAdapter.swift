@@ -1,7 +1,7 @@
 import UIKit
 import PassKit
-import TapApplePayKit_iOS
-import CommonDataModelsKit_iOS
+@_implementationOnly import TapApplePayKit_iOS
+@_implementationOnly import CommonDataModelsKit_iOS
 
 /// Adapts the new `[String: Any]` config format into the legacy TapApplePayKit-iOS API,
 /// mirroring the pattern from TapApplePayKit-Example/ViewController.swift:

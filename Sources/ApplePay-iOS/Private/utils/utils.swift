@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 import CoreTelephony
-import SharedDataModels_iOS
+@_implementationOnly import SharedDataModels_iOS
 
 // MARK: - Endpoints & schemes
 

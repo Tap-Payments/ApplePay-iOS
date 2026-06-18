@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "ApplePay-iOS"
-  spec.version      = "0.0.6"
+  spec.version      = "0.0.7"
   spec.summary      = "A comprehensive Apple Pay integration library for iOS"
   spec.description  = <<-DESC
     ApplePay-iOS is a robust library that simplifies Apple Pay integration in iOS applications.

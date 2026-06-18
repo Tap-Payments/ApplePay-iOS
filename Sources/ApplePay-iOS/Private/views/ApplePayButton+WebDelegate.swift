@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 import WebKit
-import SharedDataModels_iOS
+@_implementationOnly import SharedDataModels_iOS
 
 // MARK: - WKNavigationDelegate
 

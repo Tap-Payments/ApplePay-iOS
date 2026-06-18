@@ -1,6 +1,6 @@
 import UIKit
 import WebKit
-import SharedDataModels_iOS
+@_implementationOnly import SharedDataModels_iOS
 
 /// A simple modal view controller for handling 3DS / post-charge redirect pages.
 internal class ThreeDSViewController: UIViewController {
